@@ -158,7 +158,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/28/global-event-bus/">Global Event Bus</a>
+      <a class="article-title" href="/2017/05/28/global-event-bus/">Use a global event bus instead of a state manager</a>
     </h1>
   
 
@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Use-a-global-event-bus-instead-of-a-state-manager"><a href="#Use-a-global-event-bus-instead-of-a-state-manager" class="headerlink" title="Use a global event bus instead of a state manager"></a>Use a global event bus instead of a state manager</h1><p><em>Disclaimer : This tip is (largely) inspired by <a href="https://devblog.digimondo.io/building-a-simple-eventbus-in-vue-js-64b70fb90834" target="_blank" rel="external">this post</a> by Arvid Kahl</em></p>
+        <p><em>Disclaimer : This tip is (largely) inspired by <a href="https://devblog.digimondo.io/building-a-simple-eventbus-in-vue-js-64b70fb90834" target="_blank" rel="external">this post</a> by Arvid Kahl</em></p>
 <h3 id="What-is-a-global-event-bus"><a href="#What-is-a-global-event-bus" class="headerlink" title="What is a global event bus ?"></a>What is a global event bus ?</h3><p>In Vue.js, components are supposed to interact through <a href="https://vuejs.org/v2/guide/components.html#Composing-Components" target="_blank" rel="external">Parent-Child Communication</a>. It should go props down, events up (down being parent to child).</p>
 <p>Most applications require components to communicate with other components than their parent or children. The recommended way to do so is to implement a state management solution such as <a href="https://vuex.vuejs.org/en/intro.html" target="_blank" rel="external">Vuex</a> (an official, supported <a href="http://vuejs.org/v2/guide/state-management.html#Official-Flux-Like-Implementation" target="_blank" rel="external">Flux-like implementation</a>) or even <a href="http://vuetips.com/simple-state-management-vue-stash" target="_blank" rel="external">VueStash</a>.</p>
 <p>However this may come with a bit of overhead for relatively simple apps, where you have only a few cases of cross-components communication. This is where you could use a <em>global event bus</em>.</p>
@@ -187,6 +187,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -296,6 +307,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
