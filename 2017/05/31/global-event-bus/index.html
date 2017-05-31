@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vue," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,17 +90,16 @@
 
 
 
-<meta name="description" content="Disclaimer : This tip is (largely) inspired by this post by Arvid Kahl What is a global event bus ?In Vue.js, components are supposed to interact through Parent-Child Communication. It should go props">
-<meta name="keywords" content="Vue">
+<meta name="description" content="bal Event Bus) 声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Use a global event bus instead of a state manager">
-<meta property="og:url" content="https://vuexx.github.io/2017/05/28/global-event-bus/index.html">
+<meta property="og:title" content="Vue叉叉">
+<meta property="og:url" content="https://vuexx.github.io/2017/05/31/global-event-bus/index.html">
 <meta property="og:site_name" content="Vue叉叉">
-<meta property="og:description" content="Disclaimer : This tip is (largely) inspired by this post by Arvid Kahl What is a global event bus ?In Vue.js, components are supposed to interact through Parent-Child Communication. It should go props">
-<meta property="og:updated_time" content="2017-05-28T05:27:35.918Z">
+<meta property="og:description" content="bal Event Bus) 声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个">
+<meta property="og:updated_time" content="2017-05-31T07:48:45.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Use a global event bus instead of a state manager">
-<meta name="twitter:description" content="Disclaimer : This tip is (largely) inspired by this post by Arvid Kahl What is a global event bus ?In Vue.js, components are supposed to interact through Parent-Child Communication. It should go props">
+<meta name="twitter:title" content="Vue叉叉">
+<meta name="twitter:description" content="bal Event Bus) 声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个">
 
 
 
@@ -114,7 +113,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -128,16 +127,16 @@
 
 
 
-  <link rel="canonical" href="https://vuexx.github.io/2017/05/28/global-event-bus/"/>
+  <link rel="canonical" href="https://vuexx.github.io/2017/05/31/global-event-bus/"/>
 
 
 
 
 
-  <title>Use a global event bus instead of a state manager | Vue叉叉</title>
+  <title> | Vue叉叉</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -201,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -211,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -221,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -254,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://vuexx.github.io/2017/05/28/global-event-bus/">
+    <link itemprop="mainEntityOfPage" href="https://vuexx.github.io/2017/05/31/global-event-bus/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ethan">
@@ -271,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Use a global event bus instead of a state manager</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -281,10 +280,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-28T00:23:44+08:00">
-                2017-05-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T15:48:45+08:00">
+                2017-05-31
               </time>
             
 
@@ -318,28 +317,24 @@
       
 
       
-        <p><em>Disclaimer : This tip is (largely) inspired by <a href="https://devblog.digimondo.io/building-a-simple-eventbus-in-vue-js-64b70fb90834" target="_blank" rel="external">this post</a> by Arvid Kahl</em></p>
-<h3 id="What-is-a-global-event-bus"><a href="#What-is-a-global-event-bus" class="headerlink" title="What is a global event bus ?"></a>What is a global event bus ?</h3><p>In Vue.js, components are supposed to interact through <a href="https://vuejs.org/v2/guide/components.html#Composing-Components" target="_blank" rel="external">Parent-Child Communication</a>. It should go props down, events up (down being parent to child).</p>
-<p>Most applications require components to communicate with other components than their parent or children. The recommended way to do so is to implement a state management solution such as <a href="https://vuex.vuejs.org/en/intro.html" target="_blank" rel="external">Vuex</a> (an official, supported <a href="http://vuejs.org/v2/guide/state-management.html#Official-Flux-Like-Implementation" target="_blank" rel="external">Flux-like implementation</a>) or even <a href="http://vuetips.com/simple-state-management-vue-stash" target="_blank" rel="external">VueStash</a>.</p>
-<p>However this may come with a bit of overhead for relatively simple apps, where you have only a few cases of cross-components communication. This is where you could use a <em>global event bus</em>.</p>
-<p><strong>Global</strong> because it is available everywhere in your app.</p>
-<p><strong>Event</strong> because it is an event-based system, similar to Javascript’s event implementation (similar, but different).</p>
-<p><strong>Bus</strong> is the <a href="https://en.wikipedia.org/wiki/Bus_computing" target="_blank" rel="external">term used in computing</a> for data transfer between components (for instance between your graphics card and the mother board, you use a PCI bus).</p>
-<p>Again, <em>this is not the recommended way to do things in most applications</em>. It is mentioned <a href="http://vuejs.org/v2/guide/components.html#Non-Parent-Child-Communication" target="_blank" rel="external">in the official docs</a> though, but keep in mind that if you use it <strong>in a complex application, you’ll most likely end up with a big event mess</strong>.</p>
-<h3 id="Event-bus-instantiation"><a href="#Event-bus-instantiation" class="headerlink" title="Event bus instantiation"></a>Event bus instantiation</h3><p>The event bus is just a Vue component. It should be a dedicated component, even if any component could be used (your root component for instance).</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> EventBus = <span class="keyword">new</span> Vue()</div></pre></td></tr></table></figure>
-<p>To make it available everywhere in your app, you may attach it to the Vue global object.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> EventBus = <span class="keyword">new</span> Vue()</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperties(Vue.prototype, &#123;</div><div class="line">  <span class="attr">$bus</span>: &#123;</div><div class="line">    <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> EventBus</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="Trigger-global-events"><a href="#Trigger-global-events" class="headerlink" title="Trigger global events"></a>Trigger global events</h3><p>You can now trigger events in your components :</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'my-component'</span>,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    triggerMyEvent () &#123;</div><div class="line">      <span class="keyword">this</span>.$bus.$emit(<span class="string">'my-event'</span>, &#123; ... pass some event data ... &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Or directly in your HTML template</p>
+        <p>bal Event Bus)</p>
+<p><em>声明 : 这篇文章启发自Arvid Kahl的<a href="https://devblog.digimondo.io/building-a-simple-eventbus-in-vue-js-64b70fb90834" target="_blank" rel="external">这篇博客</a></em></p>
+<h3 id="什么是Vue全局事件总线"><a href="#什么是Vue全局事件总线" class="headerlink" title="什么是Vue全局事件总线?"></a>什么是Vue全局事件总线?</h3><p>一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 <a href="https://vuejs.org/v2/guide/components.html#Composing-Components" target="_blank" rel="external">Parent-Child Communication</a>。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。</p>
+<p>在实际的应用开发中，经常会遇到这种麻烦：两个组件之间需要通信，但他们又并不是父子组件的关系。很多时候，我们会引入Vue官方推荐的状态管理库 <a href="https://vuex.vuejs.org/en/intro.html" target="_blank" rel="external">Vuex</a> 来解决。但这种方式对于一些功能相对简单的App来说，引入Vuex感觉有些重了，因为你可能仅仅是为了解决两三个非父子组件间的通信而已。这种情况下，全局事件总线的设计可能就更适合你了。</p>
+<p><em>再次声明，全局事件总线的设计只适合在功能相对简单，又遇到组件通信麻烦的App中使用。但在大多数的App中这不是推荐的解决方案，如果你的App相对复杂，引入Vuex来管理可能会更加适合。否则随着App复杂程度的提升，全局事件总线的代码可能会变得混乱难以维护，但在相对简单的应用中，它非常方便好用。</em> </p>
+<h3 id="如何在你的Vue代码中引入全局事件总线"><a href="#如何在你的Vue代码中引入全局事件总线" class="headerlink" title="如何在你的Vue代码中引入全局事件总线"></a>如何在你的Vue代码中引入全局事件总线</h3><p>全局事件总线非常简单，它其实就是一个Vue组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> GlobalEventBus = <span class="keyword">new</span> Vue()</div></pre></td></tr></table></figure>
+<p>为了让它可以全局访问，我们把它注入到Vue组件原型上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> GlobalEventBus = <span class="keyword">new</span> Vue()</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperties(Vue.prototype, &#123;</div><div class="line">  <span class="attr">$bus</span>: &#123;</div><div class="line">    <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> GlobalEventBus</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="如何触发全局事件"><a href="#如何触发全局事件" class="headerlink" title="如何触发全局事件"></a>如何触发全局事件</h3><p>现在你就可以在Vue组件中触发和传递全局事件了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'my-component'</span>,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    triggerMyEvent () &#123;</div><div class="line">      <span class="keyword">this</span>.$bus.$emit(<span class="string">'my-event'</span>, &#123;<span class="attr">payload</span>: <span class="string">"i'm event data"</span>&#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者直接在模版中触发事件</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"$bus.$emit('my-event')"</span>&gt;</span>Click to trigger event<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Listen-to-events"><a href="#Listen-to-events" class="headerlink" title="Listen to events"></a>Listen to events</h3><p>Events can be listened to in any component.</p>
+<h3 id="监听全局事件"><a href="#监听全局事件" class="headerlink" title="监听全局事件"></a>监听全局事件</h3><p>在组件中监听全局事件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'my-component'</span>,</div><div class="line">  created () &#123;</div><div class="line">    <span class="keyword">this</span>.$bus.$on(<span class="string">'my-event'</span>, ($event) =&gt; &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'My event has been triggered'</span>, $event)</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Including the event bus component itself</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> EventBus = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  created () &#123;</div><div class="line">    <span class="keyword">this</span>.$on(<span class="string">'my-event'</span>, <span class="keyword">this</span>.handleMyEvent)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    handleMyEvent ($event) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'My event caught in global event bus'</span>, $event)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><ul>
-<li><a href="https://devblog.digimondo.io/building-a-simple-eventbus-in-vue-js-64b70fb90834" target="_blank" rel="external">Original post by Arvid Kahl</a></li>
+<p>当然在全局事件总线组件中也可以监听，这种方式适合集中处理某些事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> GlobalEventBus = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  created () &#123;</div><div class="line">    <span class="keyword">this</span>.$on(<span class="string">'my-event'</span>, <span class="keyword">this</span>.handleMyEvent)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    handleMyEvent ($event) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'My event caught in global event bus'</span>, $event)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
 <li><a href="http://vuejs.org/v2/guide/components.html#Non-Parent-Child-Communication" target="_blank" rel="external">Vue.js</a> docs about “Non Parent-Child Communication”</li>
 </ul>
 
@@ -368,12 +363,6 @@
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Vue/" rel="tag"># Vue</a>
-          
-        </div>
       
 
       
@@ -425,10 +414,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -449,7 +438,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -462,7 +451,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">标签</span>
               
             </div>
           
@@ -496,7 +485,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-a-global-event-bus"><span class="nav-number">1.</span> <span class="nav-text">What is a global event bus ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-bus-instantiation"><span class="nav-number">2.</span> <span class="nav-text">Event bus instantiation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trigger-global-events"><span class="nav-number">3.</span> <span class="nav-text">Trigger global events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Listen-to-events"><span class="nav-number">4.</span> <span class="nav-text">Listen to events</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Links"><span class="nav-number"></span> <span class="nav-text">Links</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Vue全局事件总线"><span class="nav-number">1.</span> <span class="nav-text">什么是Vue全局事件总线?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何在你的Vue代码中引入全局事件总线"><span class="nav-number">2.</span> <span class="nav-text">如何在你的Vue代码中引入全局事件总线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何触发全局事件"><span class="nav-number">3.</span> <span class="nav-text">如何触发全局事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监听全局事件"><span class="nav-number">4.</span> <span class="nav-text">监听全局事件</span></a></li></ol></div>
             
 
           </div>
@@ -528,11 +517,11 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
