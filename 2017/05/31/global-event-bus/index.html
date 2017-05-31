@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="bal Event Bus) 声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个">
+<meta name="description" content="声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个组件之间需要通信，但他们又并不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue叉叉">
+<meta property="og:title" content="在Vue中使用全局事件总线(Global Event Bus)">
 <meta property="og:url" content="https://vuexx.github.io/2017/05/31/global-event-bus/index.html">
 <meta property="og:site_name" content="Vue叉叉">
-<meta property="og:description" content="bal Event Bus) 声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个">
-<meta property="og:updated_time" content="2017-05-31T07:48:45.405Z">
+<meta property="og:description" content="声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个组件之间需要通信，但他们又并不">
+<meta property="og:updated_time" content="2017-05-31T07:53:05.909Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue叉叉">
-<meta name="twitter:description" content="bal Event Bus) 声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个">
+<meta name="twitter:title" content="在Vue中使用全局事件总线(Global Event Bus)">
+<meta name="twitter:description" content="声明 : 这篇文章启发自Arvid Kahl的这篇博客 什么是Vue全局事件总线?一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 Parent-Child Communication。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。 在实际的应用开发中，经常会遇到这种麻烦：两个组件之间需要通信，但他们又并不">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title> | Vue叉叉</title>
+  <title>在Vue中使用全局事件总线(Global Event Bus) | Vue叉叉</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">在Vue中使用全局事件总线(Global Event Bus)</h1>
         
 
         <div class="post-meta">
@@ -282,7 +282,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T15:48:45+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T15:51:59+08:00">
                 2017-05-31
               </time>
             
@@ -317,8 +317,7 @@
       
 
       
-        <p>bal Event Bus)</p>
-<p><em>声明 : 这篇文章启发自Arvid Kahl的<a href="https://devblog.digimondo.io/building-a-simple-eventbus-in-vue-js-64b70fb90834" target="_blank" rel="external">这篇博客</a></em></p>
+        <p><em>声明 : 这篇文章启发自Arvid Kahl的<a href="https://devblog.digimondo.io/building-a-simple-eventbus-in-vue-js-64b70fb90834" target="_blank" rel="external">这篇博客</a></em></p>
 <h3 id="什么是Vue全局事件总线"><a href="#什么是Vue全局事件总线" class="headerlink" title="什么是Vue全局事件总线?"></a>什么是Vue全局事件总线?</h3><p>一般我们在设计和组合Vue组件时，大多数时候都是父子组件间的交互 <a href="https://vuejs.org/v2/guide/components.html#Composing-Components" target="_blank" rel="external">Parent-Child Communication</a>。父组件通过组件属性传递参数和值(props down)给子组件，子组件通过事件(events up)传递交互动作给父组件。</p>
 <p>在实际的应用开发中，经常会遇到这种麻烦：两个组件之间需要通信，但他们又并不是父子组件的关系。很多时候，我们会引入Vue官方推荐的状态管理库 <a href="https://vuex.vuejs.org/en/intro.html" target="_blank" rel="external">Vuex</a> 来解决。但这种方式对于一些功能相对简单的App来说，引入Vuex感觉有些重了，因为你可能仅仅是为了解决两三个非父子组件间的通信而已。这种情况下，全局事件总线的设计可能就更适合你了。</p>
 <p><em>再次声明，全局事件总线的设计只适合在功能相对简单，又遇到组件通信麻烦的App中使用。但在大多数的App中这不是推荐的解决方案，如果你的App相对复杂，引入Vuex来管理可能会更加适合。否则随着App复杂程度的提升，全局事件总线的代码可能会变得混乱难以维护，但在相对简单的应用中，它非常方便好用。</em> </p>
@@ -369,6 +368,22 @@
         
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/31/在Vue中使用全局事件总线-Global-Event-Bus/" rel="next" title="在Vue中使用全局事件总线(Global Event Bus)">
+                <i class="fa fa-chevron-left"></i> 在Vue中使用全局事件总线(Global Event Bus)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
@@ -437,7 +452,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -445,15 +460,6 @@
 
           
 
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
           
 
         </nav>
